@@ -3,10 +3,42 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="shortcut icon" href="./src/pic/domainPic1.jpg" type="image/x-icon">
     <link rel="stylesheet" href="./main.css">
-    <title>Music Player</title>
+    <title>MPlayer</title>
 </head>
 <body>
+   <main>
+    <section class="player-head-section">
+       <div class="icon-div">
+        <i class="fa-solid fa-chevron-left"></i>
+        <i class="fa-solid fa-bars"></i>
+       </div>
+
+       <div class="picTitle-div">
+        <img src="./src/pic/ThemePic.jpg" >
+        <p class="picTitle-divP1">All eyes on me...</p>
+        <p class="picTitle-divP2">2Pac</p>
+         
+       </div>
+    </section>
+    <section class="player-body-section">
+        <audio  > 
+            <source src="./src/music/2Pac.mp3"> 
+        </audio>
+        <input type="range" name="music-range" id="music-range-input" value="0">
+        
+        <div>
+            <i class="fa-solid fa-backward"></i>
+            <i class="fa-solid fa-pause"></i>
+            <i class="fa-solid fa-forward"></i>
+        </div>
+
+    </section>
+   </main>
+
+
     <script src="./index.js"></script>
 </body>
 </html>

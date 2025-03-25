@@ -1,0 +1,203 @@
+@font-face {
+    font-family: music-Title;
+    src: url(./src/fonts/PlayfairDisplay-Italic-VariableFont_wght.ttf);
+    font-family: music-author;
+    src: url(./src/fonts/Allison-Regular.ttf);
+}
+
+body{
+    text-align: center;
+    background: url(./src/pic/baxckgroundPic.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: left;
+}
+
+main{
+    width: 20%;
+    background-color: black;
+    margin: 0 auto;
+    position: absolute;
+    left: 40%;
+    top: 20%;
+    border-radius: 2vw;
+    border:1px solid gold
+}
+
+.player-head-section{
+    background-color: bisque;
+    width:90%;
+    margin: 0 auto;
+    margin-top: 2vw;
+}
+
+.icon-div{
+    margin-top: 20px;
+    background-color: black;
+    display: flex;
+    justify-content: space-between;
+}
+.icon-div>i{
+    width: 14%;
+    height: 2.2vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background-image: url(./src/pic/goldenBackgorund2.jpg);
+    background-position: center;
+    border-radius: 100%;
+    font-size: 1vw;
+    font-weight: 900;
+    cursor: pointer;
+    box-shadow: 0px 0px 80px 5px white;
+    border: 1px solid black;
+}
+.icon-div>i:hover{
+     opacity: 0.8;
+}
+.icon-div>i:first-child:active{
+    opacity: 1;
+    transform: translate(2px,-2px);
+    transition: all;
+    transition-duration: 0.04s;
+    transition-delay: 0.0s;
+}
+.icon-div>i:last-child:active{
+    opacity: 1;
+    transform: translate(-2px,-2px);
+    transition: all;
+    transition-duration: 0.1s;
+    transition-delay: 0.0s;
+}
+
+.picTitle-div{
+    background-color: black;
+    width: 100%;
+}
+
+.picTitle-div>img{
+    width: 70%;
+    height:10vw;
+    margin-top: 1vw;
+    border-radius: 100%;
+    border: 5px double #E1B842;
+    box-shadow: 0px 0px 4px 0px white;
+
+}
+
+ 
+
+.picTitle-divP1{
+    font-size: 1.4vw;
+    letter-spacing: 1px;
+    color:#FDFDFD;
+    font-weight: 900;
+    font-family:music-author;
+    margin-top: -0.4vw;
+
+}
+.picTitle-divP2{
+    color:#FDFDFD;
+    margin-top: -1.5vw;
+    font-size: 1vw;
+    font-family: cursive;
+}
+audio{
+    width: 100%;
+    height: 2vw;
+}
+
+.player-body-section{
+    margin-top: 1.8vw;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}
+
+#music-range-input{
+    -webkit-appearance:none;
+    background:black;
+    width: 90%;
+    height: 0.5vw;
+    margin: 0 auto;
+    cursor: pointer;
+    border-radius: 4px;
+    box-shadow: 0px 0px 1px 1px #E1B842;
+}
+#music-range-input::-webkit-slider-thumb{
+    -webkit-appearance:none;
+    background:url(./src/pic/goldenBackgorund2.jpg);
+    background-position: center;
+    width: 1.7vw;
+    height: 1.7vw;
+    border-radius: 100%;
+    border: 5px solid black;
+    box-shadow: 0px 0px 1px 1px #E1B842;
+}
+
+
+.player-body-section>div{
+    margin-top: 2.5vw;
+    width: 70%;
+    height: 4vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin-bottom: 4vw;
+}
+
+.player-body-section>div>i{
+   font-size: 1.7vw;
+   cursor: pointer;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   text-shadow: 1px 1px 22px white;
+   width: 20%;
+   height: 2.5vw;
+   font-size: 1.2vw;
+   border-radius: 100%;
+   background: url(./src/pic/goldenBackgorund2.jpg);
+   background-position: center;
+   border: 1px solid black;
+   box-shadow: 0 0 100px 5px  white;
+}
+
+.player-body-section>div>:nth-child(2){
+    font-size: 1.5vw;
+    width: 27%;
+    height: 3vw;
+}
+.player-body-section>div>i:hover{
+    opacity: 0.9;
+}
+.player-body-section>div>:nth-child(2):active{
+  transform: translate(0px,-5px);
+  transition: all;
+  transition-duration: 0.05s;
+  transition-delay: 0.001s;
+  opacity: 1;
+  width: 22%;
+  height: 2.4vw;
+  font-size: 1vw;
+}
+
+.player-body-section>div>:nth-child(1):active{
+  transform: translate(-10px,-0px);
+  transition: all;
+  transition-duration: 0.05s;
+  transition-delay: 0.001s;
+  opacity: 1;
+}
+
+.player-body-section>div>:nth-child(3):active{
+    transform: translate(10px,-0px);
+    transition: all;
+    transition-duration: 0.05s;
+    transition-delay: 0.001s;
+    opacity: 1;
+  }
+
+
+
