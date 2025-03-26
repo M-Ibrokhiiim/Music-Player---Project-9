@@ -8,20 +8,24 @@ const musics=[
 ]
 
 
-
+// Control buttons
 const music=document.getElementById('music')
 const music_range=document.getElementById('music-range-input')
 const pause_play=document.getElementById('playAndPause')
-
 const toggleList=document.getElementById('toggleList-of-musics')
+
+
+// Containers
 const musicList=document.getElementById('list-of-musics')
 
+
+// Loading meta data of audio
 music.onloadedmetadata=function(){
     music_range.max=music.duration
     music_range.value=music.currentTime    
 }
 
- 
+//  Play and Pause of function
 function playMusic(){
     if(pause_play.classList.contains('fa-play')){
         music.play()
@@ -34,12 +38,14 @@ function playMusic(){
     }
 }
 
+// Access input on music
 if(music.play()){
 setInterval(() => {
     music_range.value=music.currentTime
 },600);
      
 }
+
 music_range.onchange=function(){
     music.play()
     music.currentTime=music_range.value
@@ -49,7 +55,7 @@ music_range.onchange=function(){
 
 
 
-
+// Toggle button function
  function toggleListFunc(){
 
    
@@ -67,7 +73,7 @@ music_range.onchange=function(){
  }
 
 
-
+// Spreading Musics on music list
 let musicUI=''
 
 musics.forEach((music)=>{
