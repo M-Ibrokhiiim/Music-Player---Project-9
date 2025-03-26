@@ -199,5 +199,15 @@ audio{
     opacity: 1;
   }
 
+.volume{
+    width: 20%;
+    height: 2vw;;
+}
 
+.volume-controlling-section{
+    height: 2vw;
+    margin-top: -1vw;
+    width: 100%;
+}
 
+ 
