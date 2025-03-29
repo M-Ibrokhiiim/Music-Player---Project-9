@@ -158,7 +158,7 @@ nextBTN.addEventListener('click',()=>{
 
 const backwardBTN=document.getElementById('backwardBTN')
 
-backwardBTN.addEventListener('click',()=>{
+backwardBTN.addEventListener(~'click',()=>{
     musicIndex=(musicIndex-1)%musics.length
 
     if(musicIndex===-1){
