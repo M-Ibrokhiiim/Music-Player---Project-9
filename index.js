@@ -1,10 +1,10 @@
 const musics=[
-    {src:"././src/music/2Pac2.mp3",  author:'2Pac Shakur', name:' Ambitionz Az A Ridah'},
-    {src:"././src/music/2Pac3.mp3",  author:'2Pac Shakur', name:'All_About_U'},
-    {src:"././src/music/2Pac4.mp3",  author:'2Pac Shakur', name:'Skandalouz (feat. Nate Dogg)'},
-    {src:"././src/music/2Pac5.mp3",  author:'2Pac Shakur', name:'How Do You Want It (feat. JoJo   K-Ci)'},
-    {src:"././src/music/2Pac6.mp3",  author:'2Pac Shakur', name:'Life Goes On'},
-    {src:"././src/music/2Pac7.mp3",  author:'2Pac Shakur', name:'Thug Passion (feat. Dramacydal   Jewell)'}
+    {src:"././src/music/2Pac2.mp3", img:"./src/pic/ThemePic2.jpg", author:'2Pac Shakur', name:' Ambitionz Az A Ridah'},
+    {src:"././src/music/2Pac3.mp3", img:"./src/pic/ThemePic3.jpg",  author:'2Pac Shakur', name:'All_About_U'},
+    {src:"././src/music/2Pac4.mp3", img:"./src/pic/ThemePic4.jpg",  author:'2Pac Shakur', name:'Skandalouz (feat. Nate Dogg)'},
+    {src:"././src/music/2Pac5.mp3", img:"./src/pic/ThemePic5.jpg", author:'2Pac Shakur', name:'How Do You Want It (feat. JoJo   K-Ci)'},
+    {src:"././src/music/2Pac6.mp3", img:"./src/pic/ThemePic6.jpg", author:'2Pac Shakur', name:'Life Goes On'},
+    {src:"././src/music/2Pac7.mp3", img:"./src/pic/ThemePic7.jpg", author:'2Pac Shakur', name:'Thug Passion (feat. Dramacydal   Jewell)'}
 ]
 
 
@@ -22,7 +22,10 @@ const muzon=document.getElementById('musicListId')
 let musicName=document.getElementById('musicName')
 let musicAuthor=document.getElementById('musicAuthor')
 let musicSRC=document.getElementById('musicSRC')
+let musicIMG=document.getElementById('musicPhoto')
 
+// Previous musics
+let previous
 
 // Loading meta data of audio
 music.onloadedmetadata=function(){
@@ -92,23 +95,27 @@ musics.forEach((music)=>{
 
 musicList.innerHTML=musicUI
 
+
+// Playing music from music list
+
 musicList.addEventListener('click',function(e){
     if(e.target.tagName==="BUTTON"){
         const musicTextContent=e.target.textContent.trim()
         let musicSrc=musics.find(music=>{
             return music.name===musicTextContent
         });
-         
+        
         if(musicSrc){
-         
         musicName.innerText=musicSrc.name
         musicAuthor.innerText=musicSrc.author
         musicSRC.src=musicSrc.src
+        musicIMG.src=musicSrc.img
         music.load()
         music.play()
 
         pause_play.classList.add('fa-pause')      
         pause_play.classList.remove('fa-play')
-           }  
+        }  
      }
 })
+
