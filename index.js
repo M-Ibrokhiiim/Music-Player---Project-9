@@ -44,7 +44,7 @@ function playMusic(){
 }
 
 // Access input on music
-// if(music.pla1y()){
+// if(music.play()){
 // setInterval(() => {
 //     music_range.value=music.currentTime
 // },600);
@@ -94,20 +94,21 @@ musicList.innerHTML=musicUI
 
 musicList.addEventListener('click',function(e){
     if(e.target.tagName==="BUTTON"){
-        const musicTextContent=e.target.textContent
-        let musicSrc=null;
-        const musicFileter=musics.find(music=>{
-            if(music.name=musicTextContent){
-               musicSrc=music
-            }
-            return 
-        })
-
+        const musicTextContent=e.target.textContent.trim()
+        let musicSrc=musics.find(music=>{
+            return music.name===musicTextContent
+        });
+         
+        if(musicSrc){
+         
         musicName.innerText=musicSrc.name
         musicAuthor.innerText=musicSrc.author
         musicSRC.src=musicSrc.src
         music.load()
         music.play()
 
+        pause_play.classList.add('fa-pause')      
+        pause_play.classList.remove('fa-play')
+           }  
      }
 })
