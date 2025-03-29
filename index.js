@@ -1,6 +1,12 @@
 // Problems
  `
- 1.ASDAS
+ 1.Play music and pause music  throght buttons
+ 2.Controling input or range with depending on my music of duration and certain value
+ 3. Spearing my JSON songs on  my music list 
+ 4.Playing my list of songs when I click
+ 5.Playing  next music through next button
+ 6.Playing backward music through backward button
+
  `
  
  
@@ -20,7 +26,7 @@ const music=document.getElementById('music')
 const music_range=document.getElementById('music-range-input')
 const pause_play=document.getElementById('playAndPause')
 const toggleList=document.getElementById('toggleList-of-musics')
-
+const chevronButton=document.getElementById('chevron-button')
 
 // Containers
 const musicList=document.getElementById('list-of-musics')
@@ -72,21 +78,15 @@ music_range.onchange=function(){
 
 // Toggle button function
  function toggleListFunc(){
-
-   
-   if(toggleList.classList.contains('fa-bars')){
     musicList.style.display='block'
-    toggleList.classList.add('fa-xmark')
-    toggleList.classList.remove('fa-bars')
-   
-     
-   }else{
-    musicList.style.display='none'
-    toggleList.classList.add('fa-bars')
-    toggleList.classList.remove('fa-xmark')
-   }
+    toggleList.style.display='none'   
  }
 
+// Toggle returnerFunction
+ function removeMusicList(){
+    toggleList.style="block"
+    musicList.style.display="none"
+ }
 
 // Spreading Musics on music list
 let musicUI=''
@@ -103,6 +103,8 @@ musics.forEach((music)=>{
 musicList.innerHTML=musicUI
 
 
+
+
 // Playing music from music list
 let musicIndex=0
 
@@ -111,7 +113,6 @@ musicList.addEventListener('click',function(e){
     if(e.target.tagName==="BUTTON"){
         const musicTextContent=e.target.textContent.trim()
         let musicSrc=musics.find(music=>{
-
             return music.name===musicTextContent
         });
 
@@ -141,8 +142,6 @@ nextBTN.addEventListener('click',()=>{
   
   
     musicIndex=(musicIndex+1)%musics.length
-    console.log(musicIndex);
-    
 
     musicName.innerText=musics[musicIndex].name
     musicAuthor.innerText=musics[musicIndex].author 
@@ -151,6 +150,8 @@ nextBTN.addEventListener('click',()=>{
   
     music.load()
     music.play()
+    pause_play.classList.add('fa-pause')
+    pause_play.classList.remove('fa-play')
 })
 
 // backwarfBTN
@@ -175,6 +176,7 @@ backwardBTN.addEventListener('click',()=>{
     pause_play.classList.add('fa-pause')
     pause_play.classList.remove('fa-play')
 })
+
 
 
 
