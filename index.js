@@ -1,3 +1,10 @@
+// Problems
+ `
+ 1.ASDAS
+ `
+ 
+ 
+
 const musics=[
     {src:"././src/music/2Pac2.mp3", img:"./src/pic/ThemePic2.jpg", author:'2Pac Shakur', name:' Ambitionz Az ARidah'},
     {src:"././src/music/2Pac3.mp3", img:"./src/pic/ThemePic3.jpg",  author:'2Pac Shakur', name:'All_About_U'},
@@ -164,4 +171,10 @@ backwardBTN.addEventListener('click',()=>{
      
     music.load()
     music.play()   
+
+    pause_play.classList.add('fa-pause')
+    pause_play.classList.remove('fa-play')
 })
+
+
+
