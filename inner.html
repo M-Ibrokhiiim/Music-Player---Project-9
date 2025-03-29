@@ -16,28 +16,22 @@
         <i class="fa-solid fa-bars " id="toggleList-of-musics" onclick="toggleListFunc()"></i>
        </div>
        <div class="list-of-musics"  id="list-of-musics"  >
-        <button class="listS">
-            <div> 
-            <p class="music-name">In My Feeling</p>
-            <p class="music-author">Drake</p>
-            </div>
-        </button>
-      
-    
-     
-    
-       
+         <button class="list-music" id="musicListId">
+            All eyes on me
+            <p>2Pac</p>
+         </button>
+         
        </div>
        <div class="picTitle-div">
         <img src="./src/pic/ThemePic.jpg" >
-        <p class="picTitle-divP1">All eyes on me...</p>
-        <p class="picTitle-divP2">2Pac</p>
+        <p class="picTitle-divP1" id="musicName">All eyes on me...</p>
+        <p class="picTitle-divP2" id="musicAuthor">2Pac</p>
          
        </div>
     </section>
     <section class="player-body-section">
         <audio id="music"> 
-            <source src="./src/music/2Pac.mp3"> 
+            <source src="./src/music/2Pac.mp3" id="musicSRC"> 
         </audio>
         <input type="range" name="music-range" id="music-range-input" value="0">
         

@@ -214,40 +214,41 @@ audio{
     display:none
 }
 
-.list-of-musics>div>div{
-    width: 90%;
-    margin: 0 auto;
-    text-align: left;
-    height: 3vw;
-    display: flex;
-    flex-direction: column;
-    margin-top: 0;
-    border-bottom: 1px solid #FDFDFD;
-    cursor: pointer;
-    
-}
-.list-of-musics>div>div:hover{
-    color: #FDFDFD;
-    border-color: black;
-}
-
-.list-of-musics>div>div:active{
-    /* cursor: progress; */
-    color: black;
-    border-color:#FDFDFD ;
-}
- 
-.music-name{
+.list-of-musics>button{
+    background-color: #E1B842;
     font-size: 1vw;
     font-family:music-author;
-    margin-bottom: 0;
+    width: 85%;
+    height: 2.5vw;
+    text-align: left;
+    border: none;
+    border-bottom: 2px solid black;
+    margin-top: 1vw;
+}
+.list-of-musics>button>p{
+    font-family: music-Title;
+    margin-top: -0.1vw;
+    font-size: 0.7vw;
 }
 
-.music-author{
-    font-family: sans-serif;
-    margin-top: -0.1vw;
-    font-size: 0.5vw;
+.list-of-musics>button:hover{
+    color: #FDFDFD;
+    border-color: #FDFDFD;
 }
+.list-of-musics>button:active{
+    color: black;
+    border-color: black;
+}
+.list-of-musics>button>p:hover{
+    color:black;
+}
+
+.list-of-musics>button>p:active{
+    color: #FDFDFD;
+}
+
+
+
 ::-webkit-scrollbar {
     width: 0.6vw; 
     height: px;  

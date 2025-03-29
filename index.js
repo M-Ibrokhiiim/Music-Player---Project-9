@@ -1,9 +1,9 @@
 const musics=[
-    {src:"././src/music/2Pac2.mp3",  author:'2Pac Shakur', name:' -Ambitionz Az A Ridah'},
-    {src:"././src/music/2Pac3.mp3",  author:'2Pac Shakur', name:'_All_About_U'},
-    {src:"././src/music/2Pac4.mp3",  author:'2Pac Shakur', name:'- Skandalouz (feat. Nate Dogg)'},
+    {src:"././src/music/2Pac2.mp3",  author:'2Pac Shakur', name:' Ambitionz Az A Ridah'},
+    {src:"././src/music/2Pac3.mp3",  author:'2Pac Shakur', name:'All_About_U'},
+    {src:"././src/music/2Pac4.mp3",  author:'2Pac Shakur', name:'Skandalouz (feat. Nate Dogg)'},
     {src:"././src/music/2Pac5.mp3",  author:'2Pac Shakur', name:'How Do You Want It (feat. JoJo   K-Ci)'},
-    {src:"././src/music/2Pac6.mp3",  author:'2Pac Shakur', name:'-Life Goes On'},
+    {src:"././src/music/2Pac6.mp3",  author:'2Pac Shakur', name:'Life Goes On'},
     {src:"././src/music/2Pac7.mp3",  author:'2Pac Shakur', name:'Thug Passion (feat. Dramacydal   Jewell)'}
 ]
 
@@ -17,6 +17,11 @@ const toggleList=document.getElementById('toggleList-of-musics')
 
 // Containers
 const musicList=document.getElementById('list-of-musics')
+const muzon=document.getElementById('musicListId')
+
+let musicName=document.getElementById('musicName')
+let musicAuthor=document.getElementById('musicAuthor')
+let musicSRC=document.getElementById('musicSRC')
 
 
 // Loading meta data of audio
@@ -39,12 +44,12 @@ function playMusic(){
 }
 
 // Access input on music
-if(music.play()){
-setInterval(() => {
-    music_range.value=music.currentTime
-},600);
+// if(music.pla1y()){
+// setInterval(() => {
+//     music_range.value=music.currentTime
+// },600);
      
-}
+// }
 
 music_range.onchange=function(){
     music.play()
@@ -78,13 +83,31 @@ let musicUI=''
 
 musics.forEach((music)=>{
     musicUI+=`
-        <div class="listS">
-            <div> 
-            <p class="music-name">${music.name}</p>
-            <p class="music-author">${music.author}</p>
-            </div>
-        </div>
+          <button> 
+            ${music.name}
+             
+         </button>
     `
 })
 
 musicList.innerHTML=musicUI
+
+musicList.addEventListener('click',function(e){
+    if(e.target.tagName==="BUTTON"){
+        const musicTextContent=e.target.textContent
+        let musicSrc=null;
+        const musicFileter=musics.find(music=>{
+            if(music.name=musicTextContent){
+               musicSrc=music
+            }
+            return 
+        })
+
+        musicName.innerText=musicSrc.name
+        musicAuthor.innerText=musicSrc.author
+        musicSRC.src=musicSrc.src
+        music.load()
+        music.play()
+
+     }
+})
