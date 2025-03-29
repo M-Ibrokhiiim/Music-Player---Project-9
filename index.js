@@ -1,10 +1,10 @@
 const musics=[
-    {src:"././src/music/2Pac2.mp3", img:"./src/pic/ThemePic2.jpg", author:'2Pac Shakur', name:' Ambitionz Az A Ridah'},
+    {src:"././src/music/2Pac2.mp3", img:"./src/pic/ThemePic2.jpg", author:'2Pac Shakur', name:' Ambitionz Az ARidah'},
     {src:"././src/music/2Pac3.mp3", img:"./src/pic/ThemePic3.jpg",  author:'2Pac Shakur', name:'All_About_U'},
-    {src:"././src/music/2Pac4.mp3", img:"./src/pic/ThemePic4.jpg",  author:'2Pac Shakur', name:'Skandalouz (feat. Nate Dogg)'},
-    {src:"././src/music/2Pac5.mp3", img:"./src/pic/ThemePic5.jpg", author:'2Pac Shakur', name:'How Do You Want It (feat. JoJo   K-Ci)'},
+    {src:"././src/music/2Pac4.mp3", img:"./src/pic/ThemePic4.jpg",  author:'2Pac Shakur', name:'Skandalouz(feat.Nate Dogg)'},
+    {src:"././src/music/2Pac5.mp3", img:"./src/pic/ThemePic5.jpg", author:'2Pac Shakur', name:'How Do YouWantIt(feat.JoJoK-Ci)'},
     {src:"././src/music/2Pac6.mp3", img:"./src/pic/ThemePic6.jpg", author:'2Pac Shakur', name:'Life Goes On'},
-    {src:"././src/music/2Pac7.mp3", img:"./src/pic/ThemePic7.jpg", author:'2Pac Shakur', name:'Thug Passion (feat. Dramacydal   Jewell)'}
+    {src:"././src/music/2Pac7.mp3", img:"./src/pic/ThemePic7.jpg", author:'2Pac Shakur', name:'Thug Passion(feat.Dramacydal Jewell)'}
 ]
 
 
@@ -25,7 +25,7 @@ let musicSRC=document.getElementById('musicSRC')
 let musicIMG=document.getElementById('musicPhoto')
 
 // Previous musics
-let previous
+ 
 
 // Loading meta data of audio
 music.onloadedmetadata=function(){
@@ -47,12 +47,12 @@ function playMusic(){
 }
 
 // Access input on music
-// if(music.play()){
-// setInterval(() => {
-//     music_range.value=music.currentTime
-// },600);
+if(music.play()){
+setInterval(() => {
+    music_range.value=music.currentTime
+},600);
      
-// }
+}
 
 music_range.onchange=function(){
     music.play()
@@ -97,14 +97,20 @@ musicList.innerHTML=musicUI
 
 
 // Playing music from music list
+let musicIndex=0
+
 
 musicList.addEventListener('click',function(e){
     if(e.target.tagName==="BUTTON"){
         const musicTextContent=e.target.textContent.trim()
         let musicSrc=musics.find(music=>{
+
             return music.name===musicTextContent
         });
-        
+
+        let indexmusic=musics.indexOf(musicSrc)   
+        musicIndex=indexmusic
+    
         if(musicSrc){
         musicName.innerText=musicSrc.name
         musicAuthor.innerText=musicSrc.author
@@ -119,3 +125,43 @@ musicList.addEventListener('click',function(e){
      }
 })
 
+
+
+// Next music event
+
+const nextBTN=document.getElementById('nextBTN')
+nextBTN.addEventListener('click',()=>{
+  
+  
+    musicIndex=(musicIndex+1)%musics.length
+    console.log(musicIndex);
+    
+
+    musicName.innerText=musics[musicIndex].name
+    musicAuthor.innerText=musics[musicIndex].author 
+    musicSRC.src=musics[musicIndex].src
+    musicIMG.src=musics[musicIndex].img
+  
+    music.load()
+    music.play()
+})
+
+// backwarfBTN
+
+const backwardBTN=document.getElementById('backwardBTN')
+
+backwardBTN.addEventListener('click',()=>{
+    musicIndex=(musicIndex-1)%musics.length
+
+    if(musicIndex===-1){
+        return musicIndex=musics.length
+    }
+     
+    musicName.innerText=musics[musicIndex].name
+    musicAuthor.innerText=musics[musicIndex].author
+    musicIMG.src=musics[musicIndex].img
+    musicSRC.src=musics[musicIndex].src
+     
+    music.load()
+    music.play()   
+})
